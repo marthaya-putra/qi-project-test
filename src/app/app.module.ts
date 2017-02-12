@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
 import {
   NgModule,
   ApplicationRef
@@ -14,21 +14,26 @@ import {
   RouterModule,
   PreloadAllModules
 } from '@angular/router';
+import { DragulaModule } from 'ng2-dragula';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 /*
  * Platform and Environment providers/directives/pipes
  */
 import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
+import { AUTHENTICATION_PARAMETER, AuthenticationParameter } from './authentication/parameter';
+import { IAuthenticationService, AuthenticationService } from './authentication/service';
+import { InstagramAuthenticationService } from './authentication/service/instagram';
 // App is our top level component
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
-import { HomeComponent } from './home';
-import { AboutComponent } from './about';
-import { NoContentComponent } from './no-content';
-import { XLargeDirective } from './home/x-large';
-
+import { ScrapperComponent } from './scrapper';
+import { MediaContainerComponent } from './scrapper/media';
+import { RedirectComponent } from './redirect';
+import { SettingsComponent } from './settings';
+import { ElipsisDirective } from './scrapper/elipsis';
 import '../styles/styles.scss';
 import '../styles/headings.css';
 
@@ -51,20 +56,37 @@ type StoreType = {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    AboutComponent,
-    HomeComponent,
-    NoContentComponent,
-    XLargeDirective
+    ScrapperComponent,
+    MediaContainerComponent,
+    RedirectComponent,
+    SettingsComponent,
+    ElipsisDirective
   ],
   imports: [ // import Angular's modules
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
+    DragulaModule,
+    JsonpModule,
+    RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules }),
+    NgbModule.forRoot()
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    {
+      provide: AUTHENTICATION_PARAMETER,
+      useValue: {
+        clientId: '9a502ab143604ca3a677647eb062f310',
+        redirectUrl: 'http://localhost:3000/redirect',
+        responseType: 'token',
+        scope: 'public_content'
+      }
+    },
+    {
+      provide: IAuthenticationService,
+      useClass: InstagramAuthenticationService
+    }
   ]
 })
 export class AppModule {

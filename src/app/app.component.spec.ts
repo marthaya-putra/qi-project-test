@@ -13,6 +13,7 @@ import { AppState } from './app.service';
 describe(`App`, () => {
   let comp: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
+  let appState: AppState;
 
   // async beforeEach
   beforeEach(async(() => {
@@ -37,18 +38,12 @@ describe(`App`, () => {
     expect(comp).toBeDefined();
   });
 
-  it(`should be @AngularClass`, () => {
-    expect(comp.url).toEqual('https://twitter.com/AngularClass');
-    expect(comp.angularclassLogo).toEqual('assets/img/angularclass-avatar.png');
-    expect(comp.name).toEqual('Angular 2 Webpack Starter');
-  });
 
-  it('should log ngOnInit', () => {
-    spyOn(console, 'log');
-    expect(console.log).not.toHaveBeenCalled();
-
+  it('should set AppState.isAuthenticated=false', () => {
+    appState = fixture.debugElement.injector.get(AppState);
     comp.ngOnInit();
-    expect(console.log).toHaveBeenCalled();
+
+    expect(appState.get('isAuthenticated')).toBe(false);
   });
 
 });

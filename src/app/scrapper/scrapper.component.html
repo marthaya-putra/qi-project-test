@@ -1,0 +1,31 @@
+<div class="search-panel">
+    <br/>
+
+    <h1>Search Image</h1>
+    <label>Search By:
+        <select [(ngModel)]="selectedFilter" class="filter-select">
+            <option *ngFor="let filter of filters" [ngValue]="filter">{{filter}}</option>
+        </select>
+    </label>
+
+    <template #rt let-r="result" let-t="term">
+        {{ r.name}}
+    </template>
+    <input (keyup.enter)="search()" class="search-input" [(ngModel)]="typeAheadModel"
+           [ngbTypeahead]="findTerm" [resultTemplate]="rt" [inputFormatter]="formatter">
+    <button (click)="search()" class="search-button">Search</button>
+    <span>You have {{selectedMedias.length}} items in the bag</span>
+</div>
+
+<div class="parent">
+    <div class="wrapper">
+        <div class="container search-result-panel" [dragula]="'media-bag'" [dragulaModel]="medias">
+            <media-container *ngFor="let media of medias" [media]="media">
+            </media-container>
+        </div>
+        <div class="container cart-panel" [dragula]="'media-bag'" [dragulaModel]="selectedMedias">
+            <media-container *ngFor="let selectedMedia of selectedMedias" [media]="selectedMedia">
+            </media-container>
+        </div>
+    </div>
+</div>

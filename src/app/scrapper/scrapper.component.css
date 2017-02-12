@@ -1,0 +1,13 @@
+.panel {
+    width: 900px;
+    overflow: hidden;
+}
+
+.container{
+    display: inline-block;
+    width: 550px;
+    height: 550px;
+    border: double;
+    overflow-x: hidden;
+    overflow-y: auto;
+}

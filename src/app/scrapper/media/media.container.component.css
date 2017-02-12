@@ -1,0 +1,15 @@
+.media-container {
+    border-style: solid;
+    margin-left: 5px;
+    width: 300px;
+    word-break: break-all;
+    height: 275px;
+    vertical-align: top;
+    margin-bottom: 5px;
+    font-size: small;
+}
+
+.pull-up{
+    margin-bottom: 1px;
+}
+

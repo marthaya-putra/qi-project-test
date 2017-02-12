@@ -1,0 +1,33 @@
+<div>
+    <br/>
+
+    <h1>Settings</h1>
+
+    <form (ngSubmit)="onSubmit()" #settingForm="ngForm">
+        <div class="form-group">
+            <label for="clientId"> Client Id</label>
+            <input type="text" class="form-control" id="clientId" required [(ngModel)]="params.clientId"
+                   name="clientId">
+        </div>
+
+        <div class="form-group">
+            <label for="redirectUrl"> Redirect Url</label>
+            <input type="text" class="form-control" id="redirectUrl" required [(ngModel)]="params.redirectUrl"
+                   name="redirectUrl">
+        </div>
+
+        <div class="form-group">
+            <label for="responseType">Response Type</label>
+            <input type="text" class="form-control" id="responseType" required [(ngModel)]="params.responseType"
+                   name="responseType">
+        </div>
+
+        <div class="form-group">
+            <label for="scope">Scope</label>
+            <input type="text" class="form-control" id="scope" required [(ngModel)]="params.scope" name="scope">
+        </div>
+
+        <button type="submit" class="btn btn-success" [disabled]="!settingForm.form.valid">Save</button>
+
+    </form>
+</div>
