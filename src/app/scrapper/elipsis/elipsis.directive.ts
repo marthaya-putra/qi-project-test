@@ -12,20 +12,22 @@ import {
 })
 
 export class ElipsisDirective implements OnChanges {
+    @Input('elipsis') private text:string;
+
     constructor(private el:ElementRef) {
     }
 
-    @Input('elipsis') text: string;
-
-    ngOnChanges(){
+    ngOnChanges() {
         this.el.nativeElement.innerHTML = this.getText(this.text);
     }
 
     private getText(text:string):string {
-        if (!text || text.length <= 150)
+        if (!text || text.length <= 150) {
             return text;
+        }
 
-        text = text.substring(0, 150) + '...';
-        return text;
+        let newText = text;
+        newText = newText.substring(0, 150) + '...';
+        return newText;
     }
 }

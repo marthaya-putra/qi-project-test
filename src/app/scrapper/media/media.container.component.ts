@@ -9,5 +9,5 @@ import { ElipsisDirective } from '../elipsis';
 })
 
 export class MediaContainerComponent {
-    @Input() media: Media;
+    @Input() public media: Media;
 }

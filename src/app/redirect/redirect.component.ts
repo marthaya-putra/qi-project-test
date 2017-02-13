@@ -10,7 +10,7 @@ import { IAuthenticationService, AuthenticationService } from '../authentication
 })
 
 export class RedirectComponent {
-    private authenticationService: AuthenticationService;
+    private authenticationService:AuthenticationService;
 
     constructor(private activatedRoute:ActivatedRoute,
                 private appState:AppState,
@@ -19,7 +19,7 @@ export class RedirectComponent {
 
         this.authenticationService = authenticationService;
         const routeFragment:Observable<string> = activatedRoute.fragment;
-        routeFragment.subscribe(fragment => {
+        routeFragment.subscribe((fragment) => {
 
             let token:string = fragment.replace('access_token=', '');
             this.authenticationService.setToken(token);

@@ -31,7 +31,7 @@ export class UserSearchService implements SearchTermService {
         let data = response.json().data;
 
         for (let item of data) {
-            searchTerms.push(new SearchTerm(item.id, item.username))
+            searchTerms.push(new SearchTerm(item.id, item.username));
         }
 
         return searchTerms;

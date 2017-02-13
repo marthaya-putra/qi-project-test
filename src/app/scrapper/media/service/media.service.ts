@@ -45,7 +45,7 @@ export class MediaService {
             let thumbnailUrl:string = item.images.thumbnail.url;
             let description:string = item.caption ? item.caption.text : '';
 
-            medias.push(new Media(title, objectUrl, thumbnailUrl, description))
+            medias.push(new Media(title, objectUrl, thumbnailUrl, description));
         }
         return medias;
     }

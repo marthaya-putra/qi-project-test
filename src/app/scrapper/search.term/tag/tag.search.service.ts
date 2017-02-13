@@ -31,7 +31,7 @@ export class TagSearchService implements SearchTermService {
         let data = response.json().data;
 
         for (let item of data) {
-            searchTerms.push(new SearchTerm(item.name, item.name))
+            searchTerms.push(new SearchTerm(item.name, item.name));
         }
 
         return searchTerms;
