@@ -92,8 +92,7 @@ describe('Scrapper Component', () => {
         expect(comp.selectedFilter).toEqual('tags', 'not tags');
         expect(filterSelectEl.textContent).toContain('tags', 'does not contain tags');
         expect(options['media-bag'].copy).toEqual(true, 'copy is false');
-        expect(options['media-bag'].revertOnSpill).toEqual(true, 'revert is false');
-        expect(options['media-bag'].accepts).toBeDefined('accepts() is not defined');
+        expect(options['media-bag'].revertOnSpill).toEqual(true, 'revertOnSpill is false');
     });
 
     it('should call mediaService#getData and populate medias when search button is clicked', () => {
