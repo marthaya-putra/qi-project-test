@@ -16,7 +16,7 @@ I reqistered a user with following credential :
 
 ## How to get a client id
 <p>
-I put the default client id I registered with qiproject, but can be configured in the "Settings" page. To get a client id, you will have to register as an Instagram developer (if you don't have one) and then go to <a href="https://www.instagram.com/developer/clients/manage/">Manage Client</a> menu to register your application. After the application's registration, you will be given client id. You can see this tutorial for more detail : https://fbombmedia.com/register-an-app-with-instagram/
+I put the default client id I registered with qiproject, but can be configured in the "Settings" page of this project. To get a client id, you will have to register as an Instagram developer (if you don't have one) and then go to <a href="https://www.instagram.com/developer/clients/manage/">Manage Client</a> menu to register your application. After the application's registration, you will be given client id. You can see this tutorial for more detail : https://fbombmedia.com/register-an-app-with-instagram/
   </p>
 
 ## How to invite users to the Sandbox
