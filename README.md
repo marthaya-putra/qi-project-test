@@ -14,6 +14,18 @@ I reqistered a user with following credential :
     </code>
 </p>
 
+##How to get a client id
+<p>
+I put the default client id I registered with qiproject, but can be configured in the "Settings" page. To get a client id, you will have to register as an Instagram developer (if you don't have one) and then go to <a href="https://www.instagram.com/developer/clients/manage/">Manage Client</a> menu to register your application. After the application's registration, you will be given client id. You can see this tutorial for more detail : https://fbombmedia.com/register-an-app-with-instagram/
+  </p>
+
+##How to invite users to the Sandbox
+<p>
+ You can ivite up to 10 users to the sandbox, to invite simply go to the "Manage Clients" page.
+ Click manage button, it should take you to your client page.
+ Go to "Sandbox" tab and you can invite user by typing their user name.
+</p>
+
 <p>
     I did add some unit tests, but not for all components/ services because of time constraint (to get use to Angular 2 took more time than expected)
 </p>
